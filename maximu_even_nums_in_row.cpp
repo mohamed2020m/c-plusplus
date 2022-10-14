@@ -7,10 +7,25 @@ bool even(int);
 int num_of_even(int*, int l);
 
 int main(){
-    vector<vector<int>> arr = {{1, 2, 3, 5}, {4, 5, 6, 1}, {6, 7, 4, 2}, {18, 18, 19, 19}}; 
-    vector<vector<int>> all_max_even_arrs;
-    vector<int> max_even_arr = arr[0];
+    vector<vector<int>> all_max_even_arrs, arr;
+    int vector_length, number; 
 
+    cout << "What's the length of the vector ? ";
+    cin >> vector_length;
+
+    cout << "Enter " <<  vector_length << " rows containing space-separeted integers only, to construct a matrix of " << vector_length << "x" << vector_length << endl;
+    
+    for(int i = 0; i < vector_length; i++){
+        vector<int> temp;
+        for(int j = 0; j < vector_length; j++){
+            cin >> number;
+            temp.push_back(number);
+        }
+        arr.push_back(temp);
+        temp.clear();
+    }
+
+    vector<int> max_even_arr = arr[0];
     int even_max = num_of_even(arr[0].data(), arr[0].size());
 
     for(int i = 1; i < arr.size(); i++){
